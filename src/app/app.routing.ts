@@ -5,6 +5,9 @@ import { DetallesequipoComponent } from './components/detallesequipo/detallesequ
 import { JugadoresComponent } from './components/jugadores/jugadores.component';
 import { DetallesjugadorComponent } from './components/detallesjugador/detallesjugador.component';
 import { ApuestasComponent } from './components/apuestas/apuestas.component';
+import { NuevaapuestaComponent } from './components/nuevaapuesta/nuevaapuesta.component';
+import { AgregarjugadorComponent } from './components/agregarjugador/agregarjugador.component';
+import { BusquedacomponentComponent } from './components/busquedacomponent/busquedacomponent.component';
 const appRoutes: Routes = [
 
     { path: "", component: HomeComponent },
@@ -13,7 +16,11 @@ const appRoutes: Routes = [
     { path: "jugadores/:idEq", component: JugadoresComponent },
     { path: "detallejugador/:id", component: DetallesjugadorComponent },
     { path: "apuestas", component: ApuestasComponent },
+    { path: "nuevaapuesta", component: NuevaapuestaComponent },
+    { path: "agregarjugador", component: AgregarjugadorComponent },
+    { path: "buscar/:nom", component: BusquedacomponentComponent },
 
+   
 ];
 
 export const appRoutingProviders: any[] = [];

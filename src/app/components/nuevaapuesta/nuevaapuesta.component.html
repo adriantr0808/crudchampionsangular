@@ -1,0 +1,21 @@
+<form #formApuestas='ngForm' class='mt-5 p-4 border border-dark bg-warning'>
+    <div class="mb-3">
+      <label class="form-label">Usuario</label>
+      <input type="text" class="form-control" name='cajausuario' #cajausuario >
+  
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Real Madrid</label>
+      <input type="text" class="form-control" name='cajarmadrid' #cajarmadrid >
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Atletico de Madrid</label>
+        <input type="text" class="form-control" name='cajatmadrid' #cajatmadrid >
+      </div>
+    <div class="mb-3">
+      <label class="form-label">Fecha</label>
+      <input type="date" class="form-control" name='cajafecha' #cajafecha >
+    </div>
+  
+    <button (click)='agregarApuesta()'  type="submit" class="btn btn-primary">Agregar departamento</button>
+  </form>

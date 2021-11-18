@@ -2,6 +2,8 @@ import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Global } from "../Global";
+import { Jugador } from "../models/jugador";
+
 
 @Injectable()
 export class ServiceEquipos {
@@ -32,15 +34,25 @@ export class ServiceEquipos {
         return this._http.get(url);
     }
 
-    getApuestas(): Observable<any> {
-        var request = '/api/Apuestas';
+
+    postJugadir(jugador: Jugador): Observable<any>{
+        var json = JSON.stringify(jugador);
+        var header = new HttpHeaders().set('Content-Type', 'application/json');
+        var request = '/api/Jugadores';
         var url = Global.urlchampions + request;
+        return this._http.post(url, json, {headers: header});
+    }
+
+    getJugadoresNombre(nom:string): Observable<any>{
+        var request ='​/api/Jugadores/BuscarJugadores/'+nom;
+        var url = Global.urlchampions+request;
         return this._http.get(url);
     }
 
-    deleteApuesta(id: number): Observable<any> {
-        var request = '/api/Apuestas/' + id;
-        var url = Global.urlchampions + request;
-        return this._http.delete(url);
+    getJugadores(): Observable<any>{
+        var request='/api/Jugadores';
+        var url = Global.urlchampions+request;
+        return this._http.get(url);
     }
+   
 }

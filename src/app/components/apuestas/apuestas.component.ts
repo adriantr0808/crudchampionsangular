@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ServiceEquipos } from 'src/app/services/equipo.service';
+import ServiceApuestas from 'src/app/services/apuesta.service';
 import { Apuesta } from 'src/app/models/apuesta';
 @Component({
   selector: 'app-apuestas',
@@ -10,7 +10,7 @@ export class ApuestasComponent implements OnInit {
   public apuestas!: Array<Apuesta>;
   public display!: string;
   public id!: string;
-  constructor(private _service: ServiceEquipos) {
+  constructor(private _service: ServiceApuestas) {
     this.display = 'none';
 
   }
@@ -21,9 +21,7 @@ export class ApuestasComponent implements OnInit {
     });
   }
 
-  openModal() {
-    this.display = 'block';
-  }
+  
 
   cargarApuestas(): void {
     this._service.getApuestas().subscribe(res => {

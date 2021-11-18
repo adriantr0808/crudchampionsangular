@@ -13,6 +13,10 @@ import { ServiceEquipos } from './services/equipo.service';
 import { HttpClientModule } from "@angular/common/http";
 import { NuevojugadorComponent } from './components/nuevojugador/nuevojugador.component';
 import { ApuestasComponent } from './components/apuestas/apuestas.component';
+import { NuevaapuestaComponent } from './components/nuevaapuesta/nuevaapuesta.component';
+import ServiceApuestas from './services/apuesta.service';
+import { AgregarjugadorComponent } from './components/agregarjugador/agregarjugador.component';
+import { BusquedacomponentComponent } from './components/busquedacomponent/busquedacomponent.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +28,9 @@ import { ApuestasComponent } from './components/apuestas/apuestas.component';
     DetallesjugadorComponent,
     NuevojugadorComponent,
     ApuestasComponent,
+    NuevaapuestaComponent,
+    AgregarjugadorComponent,
+    BusquedacomponentComponent,
 
   ],
   imports: [
@@ -32,7 +39,7 @@ import { ApuestasComponent } from './components/apuestas/apuestas.component';
     routing,
     HttpClientModule
   ],
-  providers: [appRoutingProviders, ServiceEquipos],
+  providers: [appRoutingProviders, ServiceEquipos, ServiceApuestas],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

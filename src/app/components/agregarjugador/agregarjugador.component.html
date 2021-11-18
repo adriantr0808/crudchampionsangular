@@ -1,0 +1,38 @@
+<h1 class='m-4'>Agregar juagdor</h1>
+<form #formApuestas='ngForm' class='mt-5 p-4 border border-dark bg-warning'>
+    <div class="mb-3">
+      <label class="form-label">Nombre</label>
+      <input type="text" class="form-control" name='cajanombre' #cajanombre >
+  
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Posición</label>
+      <input type="text" class="form-control" name='cajaposicion' #cajaposicion >
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Imagen</label>
+        <input type="file" (change)='onFileSelected($event)' class="form-control" name='cajaimg' #cajaimg >
+      </div>
+    <div class="mb-3">
+      <label class="form-label">Fecha</label>
+      <input type="date"  class="form-control" name='cajafecha' #cajafecha >
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Pais</label>
+      <input type="text" class="form-control" name='cajapais' #cajapais >
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Equipo</label>
+        <select *ngIf='equipos; else condicionelse'  class="form-select" name='cajaequipo' #cajaequipo >
+          <option *ngFor='let e of equipos' value='{{e.idEquipo}}'>{{e.nombre}}</option>
+        </select>
+        <ng-template #condicionelse>
+          <option>  
+            <div class="spinner-border " role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </option>
+        </ng-template>
+      </div>
+    <button (click) ='agregarJugador()' type="submit" class="btn btn-primary">Agregar jugador</button>
+  </form>

@@ -1,4 +1,6 @@
-<table class='table table-dark'>
+
+<button [routerLink]="['/nuevaapuesta']"class='btn btn-success m-4 '>Apostar</button>
+<table *ngIf='apuestas; else condicionelse' class='table table-dark'>
   <thead>
     <tr>
       <th>ID</th>
@@ -14,25 +16,31 @@
       <td>{{a.usuario}}</td>
       <td>{{a.resultado}}</td>
       <td>{{a.fecha}}</td>
-      <td><button (click)='openModal()' class='btn btn-danger'>Eliminar</button></td>
-
+      <td><button  class='btn btn-danger' data-bs-toggle='modal' [attr.data-bs-target]="'#apuesta'+a.idApuesta">Eliminar</button></td>
+      <div class="modal" [id]="'apuesta'+a.idApuesta" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-dark">Eliminar Apuesta</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-dark">
+              <p>¿Estas seguro de que quieres eliminar esta apuesta?</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal"  (click)='eliminarApuesta(a.idApuesta)'>Eliminar</button>
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </tr>
   </tbody>
 </table>
-<div class="modal" tabindex="-1" [ngStyle]="{'display':display}">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Eliminar Apuesta</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p>¿Estas seguro de que quieres eliminar est apuesta?</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Eliminar</button>
-        <button type="button" class="btn btn-primary">Cerrar</button>
-      </div>
-    </div>
+<ng-template style='margin:auto' #condicionelse>
+  <p>Cargando apuestas...</p>
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
   </div>
-</div>
+</ng-template>
+

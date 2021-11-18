@@ -12,6 +12,7 @@ import { Equipo } from 'src/app/models/equipo';
 export class DetallesequipoComponent implements OnInit {
 
   public equipo !: Equipo
+  public equipos !: Equipo
   constructor(private _activateRoute: ActivatedRoute, private _service: ServiceEquipos) { }
 
 
