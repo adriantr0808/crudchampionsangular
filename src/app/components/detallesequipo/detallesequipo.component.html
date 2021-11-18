@@ -1,0 +1,17 @@
+<div *ngIf='equipo; else condicionelse' class="card mt-3 p-4 container">
+  <img src={{equipo.imagen}} class="card-img-top" style='width: 200px'>
+  <div class="card-body">
+    <h5 class="card-title">{{equipo.nombre}}</h5>
+    <p class="card-text">{{equipo.descripcion}}
+    </p>
+    <p class="card-text">Champions: {{equipo.champions}}
+    </p>
+    <a [routerLink]="['/jugadores/',equipo.idEquipo]" class="btn btn-primary">Jugadores</a>
+    <a [routerLink]="['/']" class="btn btn-danger ms-2">Volver</a>
+  </div>
+</div>
+<ng-template #condicionelse>
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</ng-template>

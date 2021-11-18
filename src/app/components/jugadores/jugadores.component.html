@@ -1,0 +1,23 @@
+<div *ngIf='jugadores; else condicionelse'>
+  <table class='table table-dark table striped'>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Imagen</th>
+        <th>Detalles</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let j of jugadores'>
+        <td>{{j.nombre}}</td>
+        <td><img src='{{j.imagen}}' width="150px" height="auto"></td>
+        <td><button [routerLink]="['/detallejugador', j.idJugador]" class='btn btn-warning mt-5'>Detalles</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<ng-template #condicionelse>
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</ng-template>
