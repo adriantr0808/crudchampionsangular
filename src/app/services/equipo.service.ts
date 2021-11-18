@@ -31,4 +31,16 @@ export class ServiceEquipos {
         var url = Global.urlchampions + request;
         return this._http.get(url);
     }
+
+    getApuestas(): Observable<any> {
+        var request = '/api/Apuestas';
+        var url = Global.urlchampions + request;
+        return this._http.get(url);
+    }
+
+    deleteApuesta(id: number): Observable<any> {
+        var request = '/api/Apuestas/' + id;
+        var url = Global.urlchampions + request;
+        return this._http.delete(url);
+    }
 }

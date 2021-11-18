@@ -12,6 +12,7 @@ import { DetallesjugadorComponent } from './components/detallesjugador/detallesj
 import { ServiceEquipos } from './services/equipo.service';
 import { HttpClientModule } from "@angular/common/http";
 import { NuevojugadorComponent } from './components/nuevojugador/nuevojugador.component';
+import { ApuestasComponent } from './components/apuestas/apuestas.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { NuevojugadorComponent } from './components/nuevojugador/nuevojugador.co
     JugadoresComponent,
     DetallesjugadorComponent,
     NuevojugadorComponent,
+    ApuestasComponent,
 
   ],
   imports: [

@@ -1,0 +1,38 @@
+<table class='table table-dark'>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Usuario</th>
+      <th>Resultado</th>
+      <th>Fecha</th>
+      <th>Eliminar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor='let a of apuestas'>
+      <td>{{a.idApuesta}}</td>
+      <td>{{a.usuario}}</td>
+      <td>{{a.resultado}}</td>
+      <td>{{a.fecha}}</td>
+      <td><button (click)='openModal()' class='btn btn-danger'>Eliminar</button></td>
+
+    </tr>
+  </tbody>
+</table>
+<div class="modal" tabindex="-1" [ngStyle]="{'display':display}">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Eliminar Apuesta</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>¿Estas seguro de que quieres eliminar est apuesta?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Eliminar</button>
+        <button type="button" class="btn btn-primary">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
